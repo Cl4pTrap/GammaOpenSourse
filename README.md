@@ -1,3 +1,2 @@
 # GammaOpenSourse
-Trying to set new functions for TortoiseCVS
-Lets see
+WFC version 0.2
