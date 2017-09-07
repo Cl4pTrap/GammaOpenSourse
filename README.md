@@ -1,2 +1,2 @@
 # GammaOpenSourse
-WFC version 0.2
+SAMESHIT version 0.3
