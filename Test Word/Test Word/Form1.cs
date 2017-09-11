@@ -7,6 +7,7 @@ using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Net;
 using BarcodeLib;
+using System.Collections;
 using System.Threading;
 
 namespace Test_Word
@@ -41,6 +42,11 @@ namespace Test_Word
         public string WorkerLatStr;
         public Form1()
         {
+            string resource1 = "DocX.dll";
+            string resource2 = "BarcodeLib.dll";
+            EmbeddedAssembly.Load(resource1, "DocX.dll");
+            EmbeddedAssembly.Load(resource2, "BarcodeLib.dll");
+            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
             InitializeComponent();
             TBOrder1.Text = "контракта № 34/3.ЭА.У-ИТ17 от 14.06.2017г.";
             TBYear1.Text = DateTime.Now.Year.ToString();
@@ -574,7 +580,7 @@ namespace Test_Word
                         break;
                 }
                 ReplaceWordStub("$DirectorPost", TBDirectorPost2.Text, doc);
-                ReplaceWordStub("$DirectorName", TBDirectorName2.Text, doc);
+                ReplaceWordStub("$DirectorIni", ToInit(TBDirectorName2.Text), doc);
                 ReplaceWordStub("$Day", TBDay2.Text, doc);
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
@@ -601,14 +607,14 @@ namespace Test_Word
                 ReplaceWordStub("$SKZIAccept", CBSKZIAccept.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
                 ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
-                ReplaceWordStub("$DirectorName", TBDirectorName2.Text, doc);
+                ReplaceWordStub("$DirectorIni", ToInit(TBDirectorName2.Text), doc);
                 ReplaceWordStub("$Day", TBDay2.Text, doc);
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
                 ReplaceWordStub("$Day", TBDay2.Text, doc);
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$WorkerNameIni", ToInit(TBWorker2.Text), doc);
+                ReplaceWordStub("$WorkerIni", ToInit(TBWorker2.Text), doc);
                 for (int i = 0; i < CBInstaller1.Items.Count; i++)
                 {
                     if (CBInstaller1.SelectedIndex == i)
