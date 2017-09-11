@@ -35,13 +35,14 @@ namespace Test_Word
         }
 
         public string BarAct;
+        public string WP1;
+        public string WP2;
         public string StartupWay = Application.StartupPath.ToString();
         public string WorkerLatStr;
         public Form1()
         {
             InitializeComponent();
             TBOrder1.Text = "контракта № 34/3.ЭА.У-ИТ17 от 14.06.2017г.";
-            TABAll.TabPages[2].Enabled = false;
             TBYear1.Text = DateTime.Now.Year.ToString();
             TBDay1.Text = DateTime.Now.Day.ToString();
             string[] data = System.IO.File.ReadAllLines(Application.StartupPath + "\\SKZI.csv", Encoding.Default);
@@ -63,8 +64,6 @@ namespace Test_Word
                 string[] Write = response.Split((char)0x0A);
                 foreach (var line in Write) { CBInstaller1.Items.Add(line); }
                 foreach (var line in Write) { CBInstaller2.Items.Add(line); }
-                textBox1.Text = response;
-                textBox1.ScrollBars = ScrollBars.Vertical;
             }
             catch (Exception ex)
             {
@@ -120,7 +119,7 @@ namespace Test_Word
             return true;
         }
 
-        public void Authentication(object sender, EventArgs e)
+        /*public void Authentication(object sender, EventArgs e)
         {
             ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://help.khv.nppgamma.ru/files/WorkersKir.csv");
@@ -136,13 +135,14 @@ namespace Test_Word
             string response = new StreamReader(request.GetResponse().GetResponseStream(), Encoding.Default).ReadToEnd();
             textBox1.Text = response;
             textBox1.ScrollBars = ScrollBars.Vertical;
-        }
+        }*/
 
         public void Change(object sender, EventArgs e)
         {
             TBWorker1.Text = "";
             TBWorkerPost1.Text = "";
-            label2.Text = "";
+            WP1 = "";
+            WP2 = "";
             string s = CBInstaller1.Text;
             string ss;
             char[] ch = new char[s.Length];
@@ -150,15 +150,14 @@ namespace Test_Word
             ch = s.ToCharArray();
             for (int i = 0; i < s.Length; i++)
             {
-                ss = label2.Text;
+                ss = WP1;
                 if (ch[i].ToString() == ";")
                 {
                     TBWorker1.Text = ss;
                     break;
                 }
-                label2.Text += ch[i];
+                WP1 += ch[i];
             }
-            label2.Text = "";
             int a = 0;
             int b = s.Length - 1;
             ch = s.ToCharArray();
@@ -166,16 +165,18 @@ namespace Test_Word
             {
                 if (ch[i].ToString() == ";")
                 {
-                    for (int j = a; j >= 0; j--)
+                    for (int j = a-1; j > 0; j--)
                     {
-                        label2.Text += ch1[j];
+                        WP2 += ch1[j];
                     }
-                    TBWorkerPost1.Text = label2.Text;
+                    TBWorkerPost1.Text = WP2;
                     break;
                 }
                 a += 1;
                 ch1[b - i] = ch[i]; 
             }
+            BTNSearchINN.Text = ToInit(WP1);
+            TBFoundationVP1.Text = WP2;
         }
 
         private void ReplaceWordStub(string Find, string Replace, Word.Document docFind)
@@ -185,23 +186,6 @@ namespace Test_Word
             Range.Find.Execute(FindText: Find, ReplaceWith: Replace);
         }
 
-       /* public char[] Translite;
-        private void ToTranslite(string SName)
-        {
-            SName = SName.ToLower();
-            List<string> lat = new List<string> {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-            List<string> kir = new List<string> { "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я" };
-            char[] ch = SName.ToCharArray();
-            for( int i = 0; i < ch.Length; i++ )
-            {
-                char c = ch[i];
-                for (int j = 0; j >= 0; j++)
-                {
-
-                }
-            }
-        }*/
-
         public static Image ScaleImage(Image image, int maxWidth, int maxHeight)
         {
             var newImage = new Bitmap(maxWidth, maxHeight);
@@ -210,14 +194,43 @@ namespace Test_Word
             return newImage;
         }
 
-        private static void CreateWord()
+        public string ToInit(string FIO)
         {
-
+            string NewFIO = "";
+            int a = 0;
+            char[] ch = FIO.ToCharArray();
+            for (int i = 0; i < ch.Count(); i++)
+            {
+                if (ch[i] == ' ')
+                {
+                    char ch1 = ch[i + 1];
+                    ch1 = char.ToUpper(ch1);
+                    NewFIO += " ";
+                    NewFIO += ch1 + ".";
+                    break;
+                }
+                NewFIO += ch[i];
+            }
+            for (int i = 0; i < ch.Count(); i++)
+            {
+                if (ch[i] == ' ')
+                {
+                    a++;
+                }
+                if (a == 2)
+                {
+                    NewFIO += ch[i];
+                    char ch1 = ch[i + 1];
+                    ch1 = char.ToUpper(ch1);
+                    NewFIO += ch1 + ".";
+                    break;
+                }
+            }
+            return NewFIO;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Thread thread = new Thread(new ThreadStart(CreateWord));
             Word.Application app = new Word.Application
             {
                 Visible = false
@@ -477,7 +490,7 @@ namespace Test_Word
             
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*private void button2_Click(object sender, EventArgs e)
         {
           //  ПРИНТЕР
           //  System.Drawing.Printing.PrintDocument.Print(PrinterDialog.Document.);
@@ -485,7 +498,7 @@ namespace Test_Word
           //  PrinterDialog.Document.
           //  PrinterDialog.ShowDialog();
             
-        }
+        }*/
 
         private void BTNTransfer_Click(object sender, EventArgs e)
         {
@@ -566,7 +579,6 @@ namespace Test_Word
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
-                //ReplaceWordStub("$Act", CBAct2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Dst", Act, doc);
                 if (CBCity21.Checked)
                 { ReplaceWordStub("$CityType", "г.", doc); }
@@ -588,6 +600,7 @@ namespace Test_Word
                 ReplaceWordStub("$SKZIKnowlenge", CBSKZIKnowlenge.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$SKZIAccept", CBSKZIAccept.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
+                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
                 ReplaceWordStub("$DirectorName", TBDirectorName2.Text, doc);
                 ReplaceWordStub("$Day", TBDay2.Text, doc);
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
@@ -595,7 +608,7 @@ namespace Test_Word
                 ReplaceWordStub("$Day", TBDay2.Text, doc);
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$WorkerIni", TBWorker2.Text, doc);
+                ReplaceWordStub("$WorkerNameIni", ToInit(TBWorker2.Text), doc);
                 for (int i = 0; i < CBInstaller1.Items.Count; i++)
                 {
                     if (CBInstaller1.SelectedIndex == i)
@@ -634,6 +647,11 @@ namespace Test_Word
             {
 
             }
+        }
+
+        private void TABAll_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

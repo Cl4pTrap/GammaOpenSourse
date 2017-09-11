@@ -88,10 +88,7 @@
             this.TBCity1 = new System.Windows.Forms.TextBox();
             this.CBAct1 = new System.Windows.Forms.ComboBox();
             this.LBAct1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.CB123 = new System.Windows.Forms.ComboBox();
             this.LBTest = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.TABAll = new System.Windows.Forms.TabControl();
             this.TABAct = new System.Windows.Forms.TabPage();
             this.CBBarAct1 = new System.Windows.Forms.CheckBox();
@@ -144,8 +141,6 @@
             this.LBDirectorPost2 = new System.Windows.Forms.Label();
             this.TBDirectorPost2 = new System.Windows.Forms.TextBox();
             this.BTNTransfer = new System.Windows.Forms.Button();
-            this.TABTest = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.PrinterDialog = new System.Windows.Forms.PrintDialog();
             this.GBBuyer1.SuspendLayout();
             this.GBInstaller1.SuspendLayout();
@@ -154,7 +149,6 @@
             this.TABJournal.SuspendLayout();
             this.GBInstaller2.SuspendLayout();
             this.GBBuyer2.SuspendLayout();
-            this.TABTest.SuspendLayout();
             this.SuspendLayout();
             // 
             // TBFoundation1
@@ -604,7 +598,6 @@
             this.BTNSearchINN.TabIndex = 29;
             this.BTNSearchINN.Text = "Поиск организации по ИНН";
             this.BTNSearchINN.UseVisualStyleBackColor = true;
-            this.BTNSearchINN.Click += new System.EventHandler(this.Authentication);
             // 
             // GBInstaller1
             // 
@@ -708,24 +701,6 @@
             this.LBAct1.TabIndex = 51;
             this.LBAct1.Text = "Выберите категорию акта";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "BTNTest";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Authentication);
-            // 
-            // CB123
-            // 
-            this.CB123.FormattingEnabled = true;
-            this.CB123.Location = new System.Drawing.Point(10, 42);
-            this.CB123.Name = "CB123";
-            this.CB123.Size = new System.Drawing.Size(131, 21);
-            this.CB123.TabIndex = 53;
-            // 
             // LBTest
             // 
             this.LBTest.AutoSize = true;
@@ -734,25 +709,16 @@
             this.LBTest.Size = new System.Drawing.Size(0, 13);
             this.LBTest.TabIndex = 55;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 78);
-            this.textBox1.MaxLength = 327678;
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(675, 328);
-            this.textBox1.TabIndex = 56;
-            // 
             // TABAll
             // 
             this.TABAll.Controls.Add(this.TABAct);
             this.TABAll.Controls.Add(this.TABJournal);
-            this.TABAll.Controls.Add(this.TABTest);
             this.TABAll.Location = new System.Drawing.Point(3, 1);
             this.TABAll.Name = "TABAll";
             this.TABAll.SelectedIndex = 0;
             this.TABAll.Size = new System.Drawing.Size(701, 537);
             this.TABAll.TabIndex = 57;
+            this.TABAll.SelectedIndexChanged += new System.EventHandler(this.TABAll_SelectedIndexChanged);
             // 
             // TABAct
             // 
@@ -1054,16 +1020,16 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(6, 374);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 13);
+            this.label10.Size = new System.Drawing.Size(243, 13);
             this.label10.TabIndex = 66;
-            this.label10.Text = "Учётность СКЗИ";
+            this.label10.Text = "Наличие у пользователя прав доступа к СКЗИ";
             // 
             // CBSKZIAccept
             // 
             this.CBSKZIAccept.FormattingEnabled = true;
             this.CBSKZIAccept.Items.AddRange(new object[] {
-            "Соответствует",
-            "Не соответствует, исполнителем выданы рекомендации по устранению нарушения"});
+            "Не соответствует, исполнителем выданы рекомендации по устранению нарушения",
+            "Соответствует"});
             this.CBSKZIAccept.Location = new System.Drawing.Point(9, 390);
             this.CBSKZIAccept.Name = "CBSKZIAccept";
             this.CBSKZIAccept.Size = new System.Drawing.Size(310, 21);
@@ -1287,30 +1253,6 @@
             this.BTNTransfer.UseVisualStyleBackColor = true;
             this.BTNTransfer.Click += new System.EventHandler(this.BTNTransfer_Click);
             // 
-            // TABTest
-            // 
-            this.TABTest.Controls.Add(this.button2);
-            this.TABTest.Controls.Add(this.button1);
-            this.TABTest.Controls.Add(this.textBox1);
-            this.TABTest.Controls.Add(this.CB123);
-            this.TABTest.Location = new System.Drawing.Point(4, 22);
-            this.TABTest.Name = "TABTest";
-            this.TABTest.Padding = new System.Windows.Forms.Padding(3);
-            this.TABTest.Size = new System.Drawing.Size(693, 511);
-            this.TABTest.TabIndex = 1;
-            this.TABTest.Text = "Тест";
-            this.TABTest.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(108, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Принтер";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // PrinterDialog
             // 
             this.PrinterDialog.UseEXDialog = true;
@@ -1324,7 +1266,10 @@
             this.Controls.Add(this.LBTest);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(724, 576);
+            this.MinimumSize = new System.Drawing.Size(724, 576);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание акта";
             this.GBBuyer1.ResumeLayout(false);
             this.GBBuyer1.PerformLayout();
@@ -1339,8 +1284,6 @@
             this.GBInstaller2.PerformLayout();
             this.GBBuyer2.ResumeLayout(false);
             this.GBBuyer2.PerformLayout();
-            this.TABTest.ResumeLayout(false);
-            this.TABTest.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1399,15 +1342,11 @@
         private System.Windows.Forms.GroupBox GBBuyer1;
         private System.Windows.Forms.GroupBox GBInstaller1;
         private System.Windows.Forms.Button BTNSearchINN;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label LBAct1;
         private System.Windows.Forms.ComboBox CBAct1;
-        private System.Windows.Forms.ComboBox CB123;
         private System.Windows.Forms.Label LBTest;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabControl TABAll;
         private System.Windows.Forms.TabPage TABAct;
-        private System.Windows.Forms.TabPage TABTest;
         private System.Windows.Forms.TabPage TABJournal;
         private System.Windows.Forms.TextBox TBFoundationVP1;
         private System.Windows.Forms.Label LBFoundationVP1;
@@ -1454,7 +1393,6 @@
         private System.Windows.Forms.ComboBox CBSKZIReg;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CBSKZIWork;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PrintDialog PrinterDialog;
         private System.Windows.Forms.CheckBox CBBarAct1;
         private System.Windows.Forms.Button BTNCreateWord2;
