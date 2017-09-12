@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TBFoundation1 = new System.Windows.Forms.TextBox();
-            this.BTNSave = new System.Windows.Forms.Button();
+            this.BTNCreateWord1 = new System.Windows.Forms.Button();
             this.LBFoundation1 = new System.Windows.Forms.Label();
             this.LBDay1 = new System.Windows.Forms.Label();
             this.LBMonth1 = new System.Windows.Forms.Label();
@@ -158,16 +158,16 @@
             this.TBFoundation1.Size = new System.Drawing.Size(310, 20);
             this.TBFoundation1.TabIndex = 0;
             // 
-            // BTNSave
+            // BTNCreateWord1
             // 
-            this.BTNSave.AutoSize = true;
-            this.BTNSave.Location = new System.Drawing.Point(173, 438);
-            this.BTNSave.Name = "BTNSave";
-            this.BTNSave.Size = new System.Drawing.Size(333, 36);
-            this.BTNSave.TabIndex = 1;
-            this.BTNSave.Text = "Создать и сохранить документ";
-            this.BTNSave.UseVisualStyleBackColor = true;
-            this.BTNSave.Click += new System.EventHandler(this.button1_Click);
+            this.BTNCreateWord1.AutoSize = true;
+            this.BTNCreateWord1.Location = new System.Drawing.Point(173, 438);
+            this.BTNCreateWord1.Name = "BTNCreateWord1";
+            this.BTNCreateWord1.Size = new System.Drawing.Size(333, 36);
+            this.BTNCreateWord1.TabIndex = 1;
+            this.BTNCreateWord1.Text = "Создать и сохранить документ";
+            this.BTNCreateWord1.UseVisualStyleBackColor = true;
+            this.BTNCreateWord1.Click += new System.EventHandler(this.BTNCreateWord1_Click);
             // 
             // LBFoundation1
             // 
@@ -302,9 +302,9 @@
             this.LBResponsible1.AutoSize = true;
             this.LBResponsible1.Location = new System.Drawing.Point(6, 252);
             this.LBResponsible1.Name = "LBResponsible1";
-            this.LBResponsible1.Size = new System.Drawing.Size(117, 13);
+            this.LBResponsible1.Size = new System.Drawing.Size(181, 13);
             this.LBResponsible1.TabIndex = 21;
-            this.LBResponsible1.Text = "ФИО ответственного";
+            this.LBResponsible1.Text = "ФИО (полностью) ответственного";
             // 
             // TBResponsible1
             // 
@@ -334,9 +334,9 @@
             this.LBDirectorName1.AutoSize = true;
             this.LBDirectorName1.Location = new System.Drawing.Point(6, 18);
             this.LBDirectorName1.Name = "LBDirectorName1";
-            this.LBDirectorName1.Size = new System.Drawing.Size(222, 13);
+            this.LBDirectorName1.Size = new System.Drawing.Size(203, 13);
             this.LBDirectorName1.TabIndex = 25;
-            this.LBDirectorName1.Text = "Инициалы и фамилия утверждающего акт";
+            this.LBDirectorName1.Text = "ФИО (полностью) утверждающего акт";
             // 
             // TBDirectorName1
             // 
@@ -681,6 +681,7 @@
             "СКЗИ VipNet Client (АРМ СЭД)",
             "СКЗИ VipNet Client (ССТУ)",
             "СКЗИ VipNet Client (ПФР)",
+            "СКЗИ VipNet Client (ОЗИ ОМСУ)",
             "СКЗИ VipNet Client (Иное)",
             "СКЗИ КриптоПРО",
             "Континент-АП",
@@ -718,13 +719,12 @@
             this.TABAll.SelectedIndex = 0;
             this.TABAll.Size = new System.Drawing.Size(701, 537);
             this.TABAll.TabIndex = 57;
-            this.TABAll.SelectedIndexChanged += new System.EventHandler(this.TABAll_SelectedIndexChanged);
             // 
             // TABAct
             // 
             this.TABAct.Controls.Add(this.CBBarAct1);
             this.TABAct.Controls.Add(this.GBBuyer1);
-            this.TABAct.Controls.Add(this.BTNSave);
+            this.TABAct.Controls.Add(this.BTNCreateWord1);
             this.TABAct.Controls.Add(this.GBInstaller1);
             this.TABAct.Location = new System.Drawing.Point(4, 22);
             this.TABAct.Name = "TABAct";
@@ -737,7 +737,7 @@
             // CBBarAct1
             // 
             this.CBBarAct1.AutoSize = true;
-            this.CBBarAct1.Location = new System.Drawing.Point(552, 449);
+            this.CBBarAct1.Location = new System.Drawing.Point(512, 449);
             this.CBBarAct1.Name = "CBBarAct1";
             this.CBBarAct1.Size = new System.Drawing.Size(78, 17);
             this.CBBarAct1.TabIndex = 53;
@@ -761,17 +761,18 @@
             // 
             // BTNCreateWord2
             // 
-            this.BTNCreateWord2.Location = new System.Drawing.Point(183, 435);
+            this.BTNCreateWord2.Location = new System.Drawing.Point(173, 438);
             this.BTNCreateWord2.Name = "BTNCreateWord2";
             this.BTNCreateWord2.Size = new System.Drawing.Size(333, 36);
             this.BTNCreateWord2.TabIndex = 55;
-            this.BTNCreateWord2.Text = "Создать документ";
+            this.BTNCreateWord2.Text = "Создать и сохранить документ";
             this.BTNCreateWord2.UseVisualStyleBackColor = true;
             this.BTNCreateWord2.Click += new System.EventHandler(this.BTNCreateWord2_Click);
             // 
             // CBBarAct2
             // 
             this.CBBarAct2.AutoSize = true;
+            this.CBBarAct2.Enabled = false;
             this.CBBarAct2.Location = new System.Drawing.Point(522, 446);
             this.CBBarAct2.Name = "CBBarAct2";
             this.CBBarAct2.Size = new System.Drawing.Size(78, 17);
@@ -816,6 +817,7 @@
             "СКЗИ VipNet Client (АРМ СЭД)",
             "СКЗИ VipNet Client (ССТУ)",
             "СКЗИ VipNet Client (ПФР)",
+            "СКЗИ VipNet Client (ОЗИ ОМСУ)",
             "СКЗИ VipNet Client (Иное)",
             "СКЗИ КриптоПРО",
             "Континент-АП",
@@ -949,15 +951,16 @@
             this.CBInstaller2.Name = "CBInstaller2";
             this.CBInstaller2.Size = new System.Drawing.Size(310, 21);
             this.CBInstaller2.TabIndex = 49;
+            this.CBInstaller2.SelectedIndexChanged += new System.EventHandler(this.Change);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 134);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.Size = new System.Drawing.Size(113, 13);
             this.label6.TabIndex = 20;
-            this.label6.Text = "ФИО поверяющего";
+            this.label6.Text = "ФИО проверяющего";
             // 
             // TBOrder2
             // 
@@ -1010,7 +1013,7 @@
             this.GBBuyer2.Controls.Add(this.TBDirectorPost2);
             this.GBBuyer2.Location = new System.Drawing.Point(8, 6);
             this.GBBuyer2.Name = "GBBuyer2";
-            this.GBBuyer2.Size = new System.Drawing.Size(333, 423);
+            this.GBBuyer2.Size = new System.Drawing.Size(333, 426);
             this.GBBuyer2.TabIndex = 52;
             this.GBBuyer2.TabStop = false;
             this.GBBuyer2.Text = "Организация-заказчик";
@@ -1138,9 +1141,9 @@
             this.LBDirectorName2.AutoSize = true;
             this.LBDirectorName2.Location = new System.Drawing.Point(6, 18);
             this.LBDirectorName2.Name = "LBDirectorName2";
-            this.LBDirectorName2.Size = new System.Drawing.Size(139, 13);
+            this.LBDirectorName2.Size = new System.Drawing.Size(203, 13);
             this.LBDirectorName2.TabIndex = 25;
-            this.LBDirectorName2.Text = "ФИО утверждающего акт";
+            this.LBDirectorName2.Text = "ФИО (полностью) утверждающего акт";
             // 
             // TBFoundation2
             // 
@@ -1292,7 +1295,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox TBFoundation1;
-        private System.Windows.Forms.Button BTNSave;
+        private System.Windows.Forms.Button BTNCreateWord1;
         private System.Windows.Forms.Label LBFoundation1;
         private System.Windows.Forms.Label LBDay1;
         private System.Windows.Forms.Label LBMonth1;
