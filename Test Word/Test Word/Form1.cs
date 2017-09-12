@@ -8,6 +8,7 @@ using System.IO;
 using System.Net;
 using BarcodeLib;
 using System.Threading;
+using System.Reflection;
 
 namespace Test_Word
 {
@@ -39,6 +40,9 @@ namespace Test_Word
         public string WP2;
         public string StartupWay = Application.StartupPath.ToString();
         public string WorkerLatStr;
+        public string WayToFolder;
+        public string Act;
+
         public Form1()
         {
             InitializeComponent();
@@ -72,6 +76,10 @@ namespace Test_Word
                 foreach (var fio in WorkersKir) { CBInstaller1.Items.Add(fio); }
                 foreach (var fio in WorkersKir) { CBInstaller2.Items.Add(fio); }
             }
+
+           // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+           // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
 
             switch (DateTime.Now.Month)
             {
@@ -114,6 +122,30 @@ namespace Test_Word
             }
         }
 
+        /*private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assemblyName = new AssemblyName(args.Name).Name;
+            switch (assemblyName)
+             {
+                case "BarcodeLib":
+                    using (var stream = typeof(Program).Assembly.GetManifestResourceStream("TestWord." + assemblyName + ".dll"))
+                    {
+                        byte[] assemblyData = new byte[stream.Length];
+                        stream.Read(assemblyData, 0, assemblyData.Length);
+                        return Assembly.Load(assemblyData);
+                    }
+                case "DocX":
+                    using (var stream = typeof(Program).Assembly.GetManifestResourceStream("TestWord." + assemblyName + ".dll")) 
+                    {
+                        byte[] assemblyData = new byte[stream.Length];
+                        stream.Read(assemblyData, 0, assemblyData.Length);
+                        return Assembly.Load(assemblyData);
+                    }
+                default:
+                    return null;
+             }
+        }*/
+
         public bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
             return true;
@@ -139,44 +171,84 @@ namespace Test_Word
 
         public void Change(object sender, EventArgs e)
         {
-            TBWorker1.Text = "";
-            TBWorkerPost1.Text = "";
-            WP1 = "";
-            WP2 = "";
-            string s = CBInstaller1.Text;
-            string ss;
-            char[] ch = new char[s.Length];
-            char[] ch1 = new char[s.Length];
-            ch = s.ToCharArray();
-            for (int i = 0; i < s.Length; i++)
+            if (TABAll.SelectedIndex == 0)
             {
-                ss = WP1;
-                if (ch[i].ToString() == ";")
+                TBWorker1.Text = "";
+                TBWorkerPost1.Text = "";
+                WP1 = "";
+                WP2 = "";
+                string s = CBInstaller1.Text;
+                string ss;
+                char[] ch = new char[s.Length];
+                char[] ch1 = new char[s.Length];
+                ch = s.ToCharArray();
+                for (int i = 0; i < s.Length; i++)
                 {
-                    TBWorker1.Text = ss;
-                    break;
-                }
-                WP1 += ch[i];
-            }
-            int a = 0;
-            int b = s.Length - 1;
-            ch = s.ToCharArray();
-            for (int i = b; i >= 0; i--)
-            {
-                if (ch[i].ToString() == ";")
-                {
-                    for (int j = a-1; j > 0; j--)
+                    ss = WP1;
+                    if (ch[i].ToString() == ";")
                     {
-                        WP2 += ch1[j];
+                        TBWorker1.Text = ss;
+                        break;
                     }
-                    TBWorkerPost1.Text = WP2;
-                    break;
+                    WP1 += ch[i];
                 }
-                a += 1;
-                ch1[b - i] = ch[i]; 
+                int a = 0;
+                int b = s.Length - 1;
+                ch = s.ToCharArray();
+                for (int i = b; i >= 0; i--)
+                {
+                    if (ch[i].ToString() == ";")
+                    {
+                        for (int j = a - 1; j > 0; j--)
+                        {
+                            WP2 += ch1[j];
+                        }
+                        TBWorkerPost1.Text = WP2;
+                        break;
+                    }
+                    a += 1;
+                    ch1[b - i] = ch[i];
+                }
             }
-            BTNSearchINN.Text = ToInit(WP1);
-            TBFoundationVP1.Text = WP2;
+            if (TABAll.SelectedIndex == 1)
+            {
+                TBWorker2.Text = "";
+                TBWorkerPost2.Text = "";
+                WP1 = "";
+                WP2 = "";
+                string s = CBInstaller2.Text.ToString();
+                string ss;
+                char[] ch = new char[s.Length];
+                char[] ch1 = new char[s.Length];
+                ch = s.ToCharArray();
+                for (int i = 0; i < s.Length; i++)
+                {
+                    ss = WP1;
+                    if (ch[i].ToString() == ";")
+                    {
+                        TBWorker2.Text = ss;
+                        break;
+                    }
+                    WP1 += ch[i];
+                }
+                int a = 0;
+                int b = s.Length - 1;
+                ch = s.ToCharArray();
+                for (int i = b; i >= 0; i--)
+                {
+                    if (ch[i].ToString() == ";")
+                    {
+                        for (int j = a - 1; j > 0; j--)
+                        {
+                            WP2 += ch1[j];
+                        }
+                        TBWorkerPost2.Text = WP2;
+                        break;
+                    }
+                    a += 1;
+                    ch1[b - i] = ch[i];
+                }
+            }
         }
 
         private void ReplaceWordStub(string Find, string Replace, Word.Document docFind)
@@ -194,7 +266,7 @@ namespace Test_Word
             return newImage;
         }
 
-        public string ToInit(string FIO)
+        public string ToIni(string FIO)
         {
             string NewFIO = "";
             int a = 0;
@@ -229,7 +301,64 @@ namespace Test_Word
             return NewFIO;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public string ToIniRollover(string FIO)
+        {
+            string NewFIO = "";
+            int a = 0;
+            char[] ch = FIO.ToCharArray();
+            for (int i = 0; i < ch.Count(); i++)
+            {
+                if (ch[i] == ' ')
+                {
+                    char ch1 = ch[i + 1];
+                    ch1 = char.ToUpper(ch1);
+                    NewFIO += " ";
+                    NewFIO += ch1 + ".";
+                    break;
+                }
+                NewFIO += ch[i];
+            }
+            for (int i = 0; i < ch.Count(); i++)
+            {
+                if (ch[i] == ' ')
+                {
+                    a++;
+                }
+                if (a == 2)
+                {
+                    NewFIO += ch[i];
+                    char ch1 = ch[i + 1];
+                    ch1 = char.ToUpper(ch1);
+                    NewFIO += ch1 + ".";
+                    break;
+                }
+            }
+            ch = NewFIO.ToCharArray();
+            NewFIO = "";
+            a = ch.Count();
+            int b = 5;
+            for (int i = 0; i < a; i++)
+            {
+                NewFIO += ch[a-b];
+                b--;
+                if (b == 0)
+                {
+                    NewFIO += ' ';
+                    for (int k = 0; k < a; k++)
+                    {
+                        NewFIO += ch[k];
+                        if (ch[k] == ' ')
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            return NewFIO;
+        }
+
+        private void BTNCreateWord1_Click(object sender, EventArgs e)
         {
             Word.Application app = new Word.Application
             {
@@ -239,7 +368,7 @@ namespace Test_Word
             try
             { 
                 ReplaceWordStub("$DirectorPost", TBDirectorPost1.Text, doc);
-                ReplaceWordStub("$DirectorName", TBDirectorName1.Text, doc);
+                ReplaceWordStub("$DirectorIni", ToIniRollover(TBDirectorName1.Text), doc);
                 ReplaceWordStub("$Foundation", TBFoundation1.Text, doc);
                 ReplaceWordStub("$Foundation", TBFoundation1.Text, doc);
                 ReplaceWordStub("$FoundVP", TBFoundationVP1.Text, doc);
@@ -254,11 +383,11 @@ namespace Test_Word
                 ReplaceWordStub("$WorkerPost", TBWorkerPost1.Text, doc);
                 ReplaceWordStub("$WorkerPost", TBWorkerPost1.Text, doc);
                 ReplaceWordStub("$WorkerName", TBWorker1.Text, doc);
-                ReplaceWordStub("$WorkerName", TBWorker1.Text, doc);
+                ReplaceWordStub("$WorkerIni", ToIni(TBWorker1.Text), doc);
                 ReplaceWordStub("$AdminPost", TBPostRes1.Text.ToLower(), doc);
                 ReplaceWordStub("$AdminPost", TBPostRes1.Text, doc);
                 ReplaceWordStub("$AdminName", TBResponsible1.Text, doc);
-                ReplaceWordStub("$AdminName", TBResponsible1.Text, doc);
+                ReplaceWordStub("$AdminIni", ToIni(TBResponsible1.Text), doc);
                 ReplaceWordStub("$CabinetNum", TBCabinet1.Text, doc);
                 ReplaceWordStub("$PCNumber", TBPC1.Text, doc);
                 ReplaceWordStub("$Order", TBOrder1.Text, doc);
@@ -286,26 +415,30 @@ namespace Test_Word
                         m = "1-3";
                         break;
                     case 4:
+                        ReplaceWordStub("$ActSKZI", "1-4", doc);
+                        m = "1-4";
+                        break;
+                    case 5:
                         ReplaceWordStub("$ActSKZI", "1-20", doc);
                         m = "1-20";
                         break;
-                    case 5:
+                    case 6:
                         ReplaceWordStub("$ActSKZI", "2", doc);
                         m = "2";
                         break;
-                    case 6:
+                    case 7:
                         ReplaceWordStub("$ActSKZI", "3", doc);
                         m = "3";
                         break;
-                    case 7:
+                    case 8:
                         ReplaceWordStub("$ActSKZI", "4", doc);
                         m = "4";
                         break;
-                    case 8:
+                    case 9:
                         ReplaceWordStub("$ActSKZI", "5", doc);
                         m = "5";
                         break;
-                    case 9:
+                    case 10:
                         ReplaceWordStub("$ActSKZI", "20", doc);
                         m = "20";
                         break;
@@ -332,7 +465,143 @@ namespace Test_Word
                 }
                 if (CBBarAct1.Checked)
                 {
-                    BarAct = TBYear1.Text.ToString() + @"/" + m + @"/" + BarAct;
+                    BarAct = TBYear1.Text.ToString() + @"/" + m + @"/";
+                    BarcodeLib.Barcode bar = new BarcodeLib.Barcode()
+                    {
+                        IncludeLabel = false,
+                        Alignment = AlignmentPositions.CENTER,
+                        Width = 300,
+                        Height = 10,
+                        RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                        BackColor = Color.White,
+                        ForeColor = Color.Black,
+                    };
+                    BTNSearchINN.Text = BarAct;
+                    Image img = bar.Encode(TYPE.CODE39, BarAct);
+                    Clipboard.SetImage(img);
+                    app.ActiveDocument.Sections[1].Footers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range.Paste();
+                }
+                Saving.ShowDialog();
+                doc.SaveAs(FileName: Saving.FileName, FileFormat: Word.WdSaveFormat.wdFormatDocument);
+                doc.Close();
+                app.Quit();
+                Clipboard.Clear();
+                MessageBox.Show("Success!");
+            }
+            catch (Exception ex)
+            {   
+                MessageBox.Show(ex.Message);
+                doc.Close();
+                app.Quit();
+            } 
+        }
+
+        private void BTNCreateWord2_Click(object sender, EventArgs e)
+        {
+            Word.Application app = new Word.Application
+            {
+                Visible = false
+            };
+            var doc = app.Documents.Open(Application.StartupPath + @"\ActOrder.dot");
+            try
+            {
+                string m = "";
+                switch (CBAct2.SelectedIndex)
+                {
+                    case 0:
+                        ReplaceWordStub("$ActSKZI", "0", doc);
+                        m = "0";
+                        break;
+                    case 1:
+                        ReplaceWordStub("$ActSKZI", "1-1", doc);
+                        m = "1-1";
+                        break;
+                    case 2:
+                        ReplaceWordStub("$ActSKZI", "1-2", doc);
+                        m = "1-2";
+                        break;
+                    case 3:
+                        ReplaceWordStub("$ActSKZI", "1-3", doc);
+                        m = "1-3";
+                        break;
+                    case 4:
+                        ReplaceWordStub("$ActSKZI", "1-4", doc);
+                        m = "1-4";
+                        break;
+                    case 5:
+                        ReplaceWordStub("$ActSKZI", "1-20", doc);
+                        m = "1-20";
+                        break;
+                    case 6:
+                        ReplaceWordStub("$ActSKZI", "2", doc);
+                        m = "2";
+                        break;
+                    case 7:
+                        ReplaceWordStub("$ActSKZI", "3", doc);
+                        m = "3";
+                        break;
+                    case 8:
+                        ReplaceWordStub("$ActSKZI", "4", doc);
+                        m = "4";
+                        break;
+                    case 9:
+                        ReplaceWordStub("$ActSKZI", "5", doc);
+                        m = "5";
+                        break;
+                    case 10:
+                        ReplaceWordStub("$ActSKZI", "20", doc);
+                        m = "20";
+                        break;
+                }
+                ReplaceWordStub("$DirectorPost", TBDirectorPost2.Text, doc);
+                ReplaceWordStub("$DirectorIni", ToIniRollover(TBDirectorName2.Text), doc);
+                ReplaceWordStub("$Day", TBDay2.Text, doc);
+                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$Dst", Act, doc);
+                if (CBCity21.Checked)
+                { ReplaceWordStub("$CityType", "г.", doc); }
+                if (CBCity22.Checked)
+                { ReplaceWordStub("$CityType", "с.п.", doc); }
+                ReplaceWordStub("$CityName", TBCity2.Text, doc);
+                ReplaceWordStub("$Day", TBDay2.Text, doc);
+                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$WorkerPost", TBWorkerPost2.Text, doc);
+                ReplaceWordStub("$WorkerName", TBWorker2.Text, doc);
+                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
+                ReplaceWordStub("$Client", TBDirectorName2.Text, doc);
+                ReplaceWordStub("$Contract", TBOrder2.Text, doc);
+                ReplaceWordStub("$Contract", TBOrder2.Text, doc);
+                ReplaceWordStub("$SKZIWork", CBSKZIWork.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$SKZIReg", CBSKZIReg.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$SKZICheck", CBSKZICheck.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$SKZIKnowlenge", CBSKZIKnowlenge.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$SKZIAccept", CBSKZIAccept.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
+                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
+                ReplaceWordStub("$DirectorIni", ToIniRollover(TBDirectorName2.Text), doc);
+                ReplaceWordStub("$Day", TBDay2.Text, doc);
+                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$Day", TBDay2.Text, doc);
+                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
+                ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$WorkerIni", ToIniRollover(TBWorker2.Text), doc);
+                for (int i = 0; i < CBInstaller1.Items.Count; i++)
+
+                {
+                    if (CBInstaller1.SelectedIndex == i)
+                    {
+                        string[] WorkersLat = System.IO.File.ReadAllLines(Application.StartupPath + "\\WorkersLat.csv", Encoding.Default);
+                        { WorkerLatStr = WorkersLat[i]; }
+                        break;
+                    }
+                }
+                if (CBBarAct2.Checked)
+                {
+                    BarAct = TBYear2.Text.ToString() + @"/" + m + @"/" + BarAct;
                     BarcodeLib.Barcode bar = new BarcodeLib.Barcode()
                     {
                         IncludeLabel = false,
@@ -356,15 +625,11 @@ namespace Test_Word
                 MessageBox.Show("Success!");
             }
             catch (Exception ex)
-            {   
-                MessageBox.Show(ex.Message);
-                doc.Close();
-                app.Quit();
-            } 
+            {
+
+            }
         }
 
-        public string WayToFolder;
-        public string Act;
         private void BTNKey_Click(object sender, EventArgs e)
         {
             
@@ -485,11 +750,6 @@ namespace Test_Word
             }
         }
 
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-            
-        }
-
         /*private void button2_Click(object sender, EventArgs e)
         {
           //  ПРИНТЕР
@@ -520,138 +780,5 @@ namespace Test_Word
             TBCity2.Text = TBCity1.Text;
         }
 
-        private void BTNCreateWord2_Click(object sender, EventArgs e)
-        {
-            Word.Application app = new Word.Application
-            {
-                Visible = false
-            };
-            var doc = app.Documents.Open(Application.StartupPath + @"\ActOrder.dot");
-            try
-            {
-                string m = "";
-                switch (CBAct2.SelectedIndex)
-                {
-                    case 0:
-                        ReplaceWordStub("$ActSKZI", "0", doc);
-                        m = "0";
-                        break;
-                    case 1:
-                        ReplaceWordStub("$ActSKZI", "1-1", doc);
-                        m = "1-1";
-                        break;
-                    case 2:
-                        ReplaceWordStub("$ActSKZI", "1-2", doc);
-                        m = "1-2";
-                        break;
-                    case 3:
-                        ReplaceWordStub("$ActSKZI", "1-3", doc);
-                        m = "1-3";
-                        break;
-                    case 4:
-                        ReplaceWordStub("$ActSKZI", "1-20", doc);
-                        m = "1-20";
-                        break;
-                    case 5:
-                        ReplaceWordStub("$ActSKZI", "2", doc);
-                        m = "2";
-                        break;
-                    case 6:
-                        ReplaceWordStub("$ActSKZI", "3", doc);
-                        m = "3";
-                        break;
-                    case 7:
-                        ReplaceWordStub("$ActSKZI", "4", doc);
-                        m = "4";
-                        break;
-                    case 8:
-                        ReplaceWordStub("$ActSKZI", "5", doc);
-                        m = "5";
-                        break;
-                    case 9:
-                        ReplaceWordStub("$ActSKZI", "20", doc);
-                        m = "20";
-                        break;
-                }
-                ReplaceWordStub("$DirectorPost", TBDirectorPost2.Text, doc);
-                ReplaceWordStub("$DirectorName", TBDirectorName2.Text, doc);
-                ReplaceWordStub("$Day", TBDay2.Text, doc);
-                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$Dst", Act, doc);
-                if (CBCity21.Checked)
-                { ReplaceWordStub("$CityType", "г.", doc); }
-                if (CBCity22.Checked)
-                { ReplaceWordStub("$CityType", "с.п.", doc); }
-                ReplaceWordStub("$CityName", TBCity2.Text, doc);
-                ReplaceWordStub("$Day", TBDay2.Text, doc);
-                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$WorkerPost", TBWorkerPost2.Text, doc);
-                ReplaceWordStub("$WorkerName", TBWorker2.Text, doc);
-                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
-                ReplaceWordStub("$Client", TBDirectorName2.Text, doc);
-                ReplaceWordStub("$Contract", TBOrder2.Text, doc);
-                ReplaceWordStub("$Contract", TBOrder2.Text, doc);
-                ReplaceWordStub("$SKZIWork", CBSKZIWork.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$SKZIReg", CBSKZIReg.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$SKZICheck", CBSKZICheck.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$SKZIKnowlenge", CBSKZIKnowlenge.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$SKZIAccept", CBSKZIAccept.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
-                ReplaceWordStub("$Foundation", TBFoundation2.Text, doc);
-                ReplaceWordStub("$DirectorName", TBDirectorName2.Text, doc);
-                ReplaceWordStub("$Day", TBDay2.Text, doc);
-                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$Day", TBDay2.Text, doc);
-                ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
-                ReplaceWordStub("$Year", TBYear2.Text, doc);
-                ReplaceWordStub("$WorkerNameIni", ToInit(TBWorker2.Text), doc);
-                for (int i = 0; i < CBInstaller1.Items.Count; i++)
-                {
-                    if (CBInstaller1.SelectedIndex == i)
-                    {
-                        string[] WorkersLat = System.IO.File.ReadAllLines(Application.StartupPath + "\\WorkersLat.csv", Encoding.Default);
-                        { WorkerLatStr = WorkersLat[i]; }
-                        break;
-                    }
-                }
-                if (CBBarAct2.Checked)
-                {
-                    BarAct = TBYear2.Text.ToString() + @"/" + m + @"/" + BarAct;
-                    BarcodeLib.Barcode bar = new BarcodeLib.Barcode()
-                    {
-                        IncludeLabel = false,
-                        Alignment = AlignmentPositions.CENTER,
-                        Width = 340,
-                        Height = 10,
-                        RotateFlipType = RotateFlipType.RotateNoneFlipNone,
-                        BackColor = Color.White,
-                        ForeColor = Color.Black,
-                    };
-                    BTNSearchINN.Text = BarAct;
-                    Image img = bar.Encode(TYPE.CODE39Extended, BarAct);
-                    Clipboard.SetImage(img);
-                    app.ActiveDocument.Sections[1].Footers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range.Paste();
-                }
-                Saving.ShowDialog();
-                doc.SaveAs(FileName: Saving.FileName, FileFormat: Word.WdSaveFormat.wdFormatDocument);
-                doc.Close();
-                app.Quit();
-                Clipboard.Clear();
-                MessageBox.Show("Success!");
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-        private void TABAll_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
