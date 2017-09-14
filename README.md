@@ -1,2 +1,2 @@
 # GammaOpenSourse
-SAMESHIT version 0.3
+GAMMA v0.4, barcode included.
