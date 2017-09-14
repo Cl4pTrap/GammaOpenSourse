@@ -772,8 +772,7 @@
             // CBBarAct2
             // 
             this.CBBarAct2.AutoSize = true;
-            this.CBBarAct2.Enabled = false;
-            this.CBBarAct2.Location = new System.Drawing.Point(522, 446);
+            this.CBBarAct2.Location = new System.Drawing.Point(512, 449);
             this.CBBarAct2.Name = "CBBarAct2";
             this.CBBarAct2.Size = new System.Drawing.Size(78, 17);
             this.CBBarAct2.TabIndex = 54;

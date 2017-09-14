@@ -386,10 +386,8 @@ namespace Test_Word
                 }
                 if (CBBarAct1.Checked)
                 {
-                    char ch = '/';
                     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                     BarActReader = TBYear1.Text.ToString() + @"/" + m + @"/" + BarActWriter;
-                    
                     Barcode bar = new Barcode()
                     {
                         IncludeLabel = false,
@@ -416,8 +414,10 @@ namespace Test_Word
             {   
                 MessageBox.Show(ex.Message);
                 doc.SaveAs(FileName: Application.StartupPath + "\\Delete", FileFormat: Word.WdSaveFormat.wdFormatDocument);
+                FileInfo file = new FileInfo(Application.StartupPath + "\\Delete.doc");
                 doc.Close();
                 app.Quit();
+                file.Delete();
             } 
         }
 
@@ -526,24 +526,25 @@ namespace Test_Word
                 }
                 if (CBBarAct2.Checked)
                 {
-                    BarActWriter = TBYear2.Text.ToString() + @"/" + m + @"/" + BarActWriter;
+                    BarActReader = TBYear2.Text.ToString() + @"/" + m + @"/" + BarActWriter;
                     BarcodeLib.Barcode bar = new BarcodeLib.Barcode()
                     {
                         IncludeLabel = false,
                         Alignment = AlignmentPositions.CENTER,
-                        Width = 340,
+                        Width = 300,
                         Height = 10,
                         RotateFlipType = RotateFlipType.RotateNoneFlipNone,
                         BackColor = Color.White,
                         ForeColor = Color.Black,
                     };
-                    BTNSearchINN.Text = BarActWriter;
-                    Image img = bar.Encode(TYPE.CODE39Extended, BarActWriter);
+                    Image img = bar.Encode(TYPE.CODE128B, BarActReader);
                     Clipboard.SetImage(img);
                     app.ActiveDocument.Sections[1].Footers[Word.WdHeaderFooterIndex.wdHeaderFooterPrimary].Range.Paste();
                 }
                 Saving.ShowDialog();
                 doc.SaveAs(FileName: Saving.FileName, FileFormat: Word.WdSaveFormat.wdFormatDocument);
+                FileInfo file = new FileInfo(Application.StartupPath + "\\Delete");
+                file.Delete();
                 doc.Close();
                 app.Quit();
                 Clipboard.Clear();
@@ -551,7 +552,12 @@ namespace Test_Word
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
+                doc.SaveAs(FileName: Application.StartupPath + "\\Delete", FileFormat: Word.WdSaveFormat.wdFormatDocument);
+                FileInfo file = new FileInfo(Application.StartupPath + "\\Delete.doc");
+                doc.Close();
+                app.Quit();
+                file.Delete();
             }
         }
 
