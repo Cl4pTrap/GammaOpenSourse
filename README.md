@@ -1,2 +1,2 @@
 # GammaOpenSourse
-GAMMA v0.4, barcode included.
+Sameshit v0.5, barcode included.
