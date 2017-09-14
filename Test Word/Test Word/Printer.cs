@@ -9,6 +9,5 @@ namespace Test_Word
     class Printer
     {
         private string Command;
-
     }
 }
