@@ -10,6 +10,7 @@ using BarcodeLib;
 using System.Globalization;
 using System.Threading;
 using System.Reflection;
+using System.Resources;
 
 namespace Test_Word
 {
@@ -79,8 +80,15 @@ namespace Test_Word
                 foreach (var fio in WorkersKir) { CBInstaller2.Items.Add(fio); }
             }
 
-           // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-           // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            byte[] ResourceRef;
+            ResourceRef = Properties.Resources.DocX;
+            System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);
+            ResourceRef = Properties.Resources.BarcodeLib;
+            System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);
+
+
+            // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
 
 
             switch (DateTime.Now.Month)
@@ -124,7 +132,7 @@ namespace Test_Word
             }
         }
 
-        /*private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        private static Assembly CurrentDomain_AssemblyResolve1(object sender, ResolveEventArgs args)
         {
             var assemblyName = new AssemblyName(args.Name).Name;
             switch (assemblyName)
@@ -146,7 +154,7 @@ namespace Test_Word
                 default:
                     return null;
              }
-        }*/
+        }
 
         public bool AcceptAllCertifications(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certification, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
@@ -280,7 +288,6 @@ namespace Test_Word
 
         private void BTNCreateWord1_Click(object sender, EventArgs e)
         {
-            //InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(new CultureInfo("en-US"));
             Word.Application app = new Word.Application
             {
                 Visible = false

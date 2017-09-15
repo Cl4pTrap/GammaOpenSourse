@@ -1030,8 +1030,8 @@
             // 
             this.CBSKZIAccept.FormattingEnabled = true;
             this.CBSKZIAccept.Items.AddRange(new object[] {
-            "Не соответствует, исполнителем выданы рекомендации по устранению нарушения",
-            "Соответствует"});
+            "Соответствует",
+            "Не соответствует, исполнителем выданы рекомендации по устранению нарушения"});
             this.CBSKZIAccept.Location = new System.Drawing.Point(9, 390);
             this.CBSKZIAccept.Name = "CBSKZIAccept";
             this.CBSKZIAccept.Size = new System.Drawing.Size(310, 21);
@@ -1071,7 +1071,7 @@
             this.CBSKZICheck.FormattingEnabled = true;
             this.CBSKZICheck.Items.AddRange(new object[] {
             "Соответствует",
-            "Не соответствует, исполнителем проведено обучающее занятие с пользователем СКЗИ"});
+            "Не соответствует, устранено исполнителем"});
             this.CBSKZICheck.Location = new System.Drawing.Point(9, 310);
             this.CBSKZICheck.Name = "CBSKZICheck";
             this.CBSKZICheck.Size = new System.Drawing.Size(310, 21);
