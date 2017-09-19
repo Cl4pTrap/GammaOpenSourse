@@ -1,0 +1,45 @@
+c:\users\nl\documents\visual studio 2015\Projects\Test Word\Test Word\bin\Debug\Test Word.exe.config
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\bin\Debug\Test Word.exe
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\bin\Debug\Test Word.pdb
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\bin\Debug\DocX.dll
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test Word.csprojResolveAssemblyReference.cache
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test_Word.Form1.resources
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test_Word.Properties.Resources.resources
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test Word.csproj.GenerateResource.Cache
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test Word.exe
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test Word.pdb
+C:\Users\NL\Documents\Visual Studio 2015\Projects\Test Word\Test Word\obj\Debug\Test Word.csproj.ResolveComReference.cache
+C:\Users\NL\documents\visual studio 2015\Projects\Test Word\Test Word\bin\Debug\BarcodeLib.dll
+C:\Users\User\source\repos\Test Word\Test Word\bin\Debug\Test Word.exe.config
+C:\Users\User\source\repos\Test Word\Test Word\bin\Debug\Test Word.exe
+C:\Users\User\source\repos\Test Word\Test Word\bin\Debug\Test Word.pdb
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.ResolveComReference.cache
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test_Word.Form1.resources
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test_Word.Properties.Resources.resources
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.GenerateResource.Cache
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.exe
+C:\Users\User\source\repos\Test Word\Test Word\obj\Debug\Test Word.pdb
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.csprojResolveAssemblyReference.cache
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.ResolveComReference.cache
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test_Word.Form1.resources
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test_Word.Properties.Resources.resources
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.GenerateResource.Cache
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.csproj.CoreCompileInputs.cache
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.exe
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\obj\Debug\Test Word.pdb
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\bin\Debug\Test Word.exe.config
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\bin\Debug\Test Word.exe
+C:\Users\mitryaev.v\source\repos\Test Word\Test Word\bin\Debug\Test Word.pdb
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\bin\Debug\Test Word.exe.config
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\bin\Debug\Test Word.exe
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\bin\Debug\Test Word.pdb
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.csprojResolveAssemblyReference.cache
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.csproj.ResolveComReference.cache
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test_Word.Form1.resources
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test_Word.Properties.Resources.resources
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.csproj.GenerateResource.Cache
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.csproj.CoreCompileInputs.cache
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.exe
+C:\Users\mitryaev.v\source\repos\Test Word - копия\Test Word\obj\Debug\Test Word.pdb
