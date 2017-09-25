@@ -1,0 +1,11 @@
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Mongoose.csproj.ResolveComReference.cache
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Mongoose.Form1.resources
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Test_Word.Properties.Resources.resources
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Mongoose.csproj.GenerateResource.Cache
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Mongoose.csproj.CoreCompileInputs.cache
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Gamma Act Manager.exe
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Gamma Act Manager.pdb
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\bin\Debug\Gamma Act Manager.exe.config
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\bin\Debug\Gamma Act Manager.exe
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\bin\Debug\Gamma Act Manager.pdb
+C:\Users\mitryaev.v\source\repos\Test Word (in progress)\Test Word\obj\Debug\Mongoose.csprojResolveAssemblyReference.cache

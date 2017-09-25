@@ -1,4 +1,4 @@
-﻿namespace Test_Word
+﻿namespace Mongoose
 {
     partial class Form1
     {
@@ -78,8 +78,6 @@
             this.CBInstaller1 = new System.Windows.Forms.ComboBox();
             this.LBInstallerCB1 = new System.Windows.Forms.Label();
             this.GBBuyer1 = new System.Windows.Forms.GroupBox();
-            this.TBFoundationVP1 = new System.Windows.Forms.TextBox();
-            this.LBFoundationVP1 = new System.Windows.Forms.Label();
             this.BTNLoadTemplate1 = new System.Windows.Forms.Button();
             this.GBInstaller1 = new System.Windows.Forms.GroupBox();
             this.LBFoundationContracter1 = new System.Windows.Forms.Label();
@@ -109,9 +107,13 @@
             this.BTNCreateTemplate1 = new System.Windows.Forms.Button();
             this.CBBarAct1 = new System.Windows.Forms.CheckBox();
             this.TABJournal = new System.Windows.Forms.TabPage();
+            this.BTNLoadTemplate2 = new System.Windows.Forms.Button();
+            this.BTNCreateTemplate2 = new System.Windows.Forms.Button();
             this.BTNCreateWord2 = new System.Windows.Forms.Button();
             this.CBBarAct2 = new System.Windows.Forms.CheckBox();
             this.GBInstaller2 = new System.Windows.Forms.GroupBox();
+            this.CBUnit2 = new System.Windows.Forms.ComboBox();
+            this.LBUnit2 = new System.Windows.Forms.Label();
             this.CBAct2 = new System.Windows.Forms.ComboBox();
             this.LBAct2 = new System.Windows.Forms.Label();
             this.LBRegCard2 = new System.Windows.Forms.Label();
@@ -130,7 +132,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.TBOrder2 = new System.Windows.Forms.TextBox();
             this.TBWorkerPost2 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.LBWorkerPost2 = new System.Windows.Forms.Label();
             this.GBBuyer2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.CBSKZIAccept = new System.Windows.Forms.ComboBox();
@@ -142,8 +144,6 @@
             this.CBSKZIReg = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CBSKZIWork = new System.Windows.Forms.ComboBox();
-            this.TBFoundationVP2 = new System.Windows.Forms.TextBox();
-            this.LBFoundationVP2 = new System.Windows.Forms.Label();
             this.LBDirectorName2 = new System.Windows.Forms.Label();
             this.TBFoundation2 = new System.Windows.Forms.TextBox();
             this.LBFoundation2 = new System.Windows.Forms.Label();
@@ -177,9 +177,9 @@
             // BTNCreateWord1
             // 
             this.BTNCreateWord1.AutoSize = true;
-            this.BTNCreateWord1.Location = new System.Drawing.Point(8, 511);
+            this.BTNCreateWord1.Location = new System.Drawing.Point(8, 417);
             this.BTNCreateWord1.Name = "BTNCreateWord1";
-            this.BTNCreateWord1.Size = new System.Drawing.Size(176, 36);
+            this.BTNCreateWord1.Size = new System.Drawing.Size(174, 47);
             this.BTNCreateWord1.TabIndex = 30;
             this.BTNCreateWord1.Text = "Создать и сохранить документ";
             this.BTNCreateWord1.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             // LBDay1
             // 
             this.LBDay1.AutoSize = true;
-            this.LBDay1.Location = new System.Drawing.Point(6, 175);
+            this.LBDay1.Location = new System.Drawing.Point(6, 139);
             this.LBDay1.Name = "LBDay1";
             this.LBDay1.Size = new System.Drawing.Size(89, 13);
             this.LBDay1.TabIndex = 3;
@@ -206,7 +206,7 @@
             // LBMonth1
             // 
             this.LBMonth1.AutoSize = true;
-            this.LBMonth1.Location = new System.Drawing.Point(112, 176);
+            this.LBMonth1.Location = new System.Drawing.Point(112, 140);
             this.LBMonth1.Name = "LBMonth1";
             this.LBMonth1.Size = new System.Drawing.Size(95, 13);
             this.LBMonth1.TabIndex = 4;
@@ -214,14 +214,14 @@
             // 
             // TBDay1
             // 
-            this.TBDay1.Location = new System.Drawing.Point(9, 191);
+            this.TBDay1.Location = new System.Drawing.Point(9, 155);
             this.TBDay1.Name = "TBDay1";
             this.TBDay1.Size = new System.Drawing.Size(100, 20);
             this.TBDay1.TabIndex = 4;
             // 
             // TBYear1
             // 
-            this.TBYear1.Location = new System.Drawing.Point(242, 192);
+            this.TBYear1.Location = new System.Drawing.Point(242, 156);
             this.TBYear1.Name = "TBYear1";
             this.TBYear1.Size = new System.Drawing.Size(77, 20);
             this.TBYear1.TabIndex = 6;
@@ -242,7 +242,7 @@
             "октября",
             "ноября",
             "декабря"});
-            this.CBMonth1.Location = new System.Drawing.Point(115, 191);
+            this.CBMonth1.Location = new System.Drawing.Point(115, 155);
             this.CBMonth1.Name = "CBMonth1";
             this.CBMonth1.Size = new System.Drawing.Size(121, 21);
             this.CBMonth1.TabIndex = 5;
@@ -250,7 +250,7 @@
             // LBYear1
             // 
             this.LBYear1.AutoSize = true;
-            this.LBYear1.Location = new System.Drawing.Point(239, 176);
+            this.LBYear1.Location = new System.Drawing.Point(239, 140);
             this.LBYear1.Name = "LBYear1";
             this.LBYear1.Size = new System.Drawing.Size(80, 13);
             this.LBYear1.TabIndex = 8;
@@ -259,7 +259,7 @@
             // LBUser1
             // 
             this.LBUser1.AutoSize = true;
-            this.LBUser1.Location = new System.Drawing.Point(6, 214);
+            this.LBUser1.Location = new System.Drawing.Point(6, 178);
             this.LBUser1.Name = "LBUser1";
             this.LBUser1.Size = new System.Drawing.Size(192, 13);
             this.LBUser1.TabIndex = 9;
@@ -267,7 +267,7 @@
             // 
             // TBUser1
             // 
-            this.TBUser1.Location = new System.Drawing.Point(9, 230);
+            this.TBUser1.Location = new System.Drawing.Point(9, 194);
             this.TBUser1.Name = "TBUser1";
             this.TBUser1.Size = new System.Drawing.Size(310, 20);
             this.TBUser1.TabIndex = 7;
@@ -275,7 +275,7 @@
             // LBCabinet1
             // 
             this.LBCabinet1.AutoSize = true;
-            this.LBCabinet1.Location = new System.Drawing.Point(8, 331);
+            this.LBCabinet1.Location = new System.Drawing.Point(8, 295);
             this.LBCabinet1.Name = "LBCabinet1";
             this.LBCabinet1.Size = new System.Drawing.Size(68, 13);
             this.LBCabinet1.TabIndex = 13;
@@ -283,14 +283,14 @@
             // 
             // TBCabinet1
             // 
-            this.TBCabinet1.Location = new System.Drawing.Point(9, 347);
+            this.TBCabinet1.Location = new System.Drawing.Point(9, 311);
             this.TBCabinet1.Name = "TBCabinet1";
             this.TBCabinet1.Size = new System.Drawing.Size(147, 20);
             this.TBCabinet1.TabIndex = 10;
             // 
             // TBPC1
             // 
-            this.TBPC1.Location = new System.Drawing.Point(165, 347);
+            this.TBPC1.Location = new System.Drawing.Point(165, 311);
             this.TBPC1.Name = "TBPC1";
             this.TBPC1.Size = new System.Drawing.Size(154, 20);
             this.TBPC1.TabIndex = 11;
@@ -298,7 +298,7 @@
             // LBPC1
             // 
             this.LBPC1.AutoSize = true;
-            this.LBPC1.Location = new System.Drawing.Point(162, 331);
+            this.LBPC1.Location = new System.Drawing.Point(162, 295);
             this.LBPC1.Name = "LBPC1";
             this.LBPC1.Size = new System.Drawing.Size(36, 13);
             this.LBPC1.TabIndex = 18;
@@ -316,7 +316,7 @@
             // LBResponsible1
             // 
             this.LBResponsible1.AutoSize = true;
-            this.LBResponsible1.Location = new System.Drawing.Point(6, 252);
+            this.LBResponsible1.Location = new System.Drawing.Point(6, 216);
             this.LBResponsible1.Name = "LBResponsible1";
             this.LBResponsible1.Size = new System.Drawing.Size(181, 13);
             this.LBResponsible1.TabIndex = 21;
@@ -324,7 +324,7 @@
             // 
             // TBResponsible1
             // 
-            this.TBResponsible1.Location = new System.Drawing.Point(9, 268);
+            this.TBResponsible1.Location = new System.Drawing.Point(9, 232);
             this.TBResponsible1.Name = "TBResponsible1";
             this.TBResponsible1.Size = new System.Drawing.Size(310, 20);
             this.TBResponsible1.TabIndex = 8;
@@ -332,7 +332,7 @@
             // LBPostRes1
             // 
             this.LBPostRes1.AutoSize = true;
-            this.LBPostRes1.Location = new System.Drawing.Point(6, 291);
+            this.LBPostRes1.Location = new System.Drawing.Point(6, 255);
             this.LBPostRes1.Name = "LBPostRes1";
             this.LBPostRes1.Size = new System.Drawing.Size(148, 13);
             this.LBPostRes1.TabIndex = 23;
@@ -340,7 +340,7 @@
             // 
             // TBPostRes1
             // 
-            this.TBPostRes1.Location = new System.Drawing.Point(9, 307);
+            this.TBPostRes1.Location = new System.Drawing.Point(9, 271);
             this.TBPostRes1.Name = "TBPostRes1";
             this.TBPostRes1.Size = new System.Drawing.Size(310, 20);
             this.TBPostRes1.TabIndex = 9;
@@ -559,8 +559,6 @@
             // 
             // GBBuyer1
             // 
-            this.GBBuyer1.Controls.Add(this.TBFoundationVP1);
-            this.GBBuyer1.Controls.Add(this.LBFoundationVP1);
             this.GBBuyer1.Controls.Add(this.BTNLoadTemplate1);
             this.GBBuyer1.Controls.Add(this.LBDirectorName1);
             this.GBBuyer1.Controls.Add(this.TBFoundation1);
@@ -586,33 +584,16 @@
             this.GBBuyer1.Controls.Add(this.TBPC1);
             this.GBBuyer1.Location = new System.Drawing.Point(8, 6);
             this.GBBuyer1.Name = "GBBuyer1";
-            this.GBBuyer1.Size = new System.Drawing.Size(333, 499);
+            this.GBBuyer1.Size = new System.Drawing.Size(333, 405);
             this.GBBuyer1.TabIndex = 51;
             this.GBBuyer1.TabStop = false;
             this.GBBuyer1.Text = "Организация-заказчик";
             // 
-            // TBFoundationVP1
-            // 
-            this.TBFoundationVP1.Enabled = false;
-            this.TBFoundationVP1.Location = new System.Drawing.Point(9, 153);
-            this.TBFoundationVP1.Name = "TBFoundationVP1";
-            this.TBFoundationVP1.Size = new System.Drawing.Size(310, 20);
-            this.TBFoundationVP1.TabIndex = 3;
-            // 
-            // LBFoundationVP1
-            // 
-            this.LBFoundationVP1.AutoSize = true;
-            this.LBFoundationVP1.Location = new System.Drawing.Point(6, 137);
-            this.LBFoundationVP1.Name = "LBFoundationVP1";
-            this.LBFoundationVP1.Size = new System.Drawing.Size(231, 13);
-            this.LBFoundationVP1.TabIndex = 31;
-            this.LBFoundationVP1.Text = "Название учреждения (винительный падеж)";
-            // 
             // BTNLoadTemplate1
             // 
-            this.BTNLoadTemplate1.Location = new System.Drawing.Point(9, 378);
+            this.BTNLoadTemplate1.Location = new System.Drawing.Point(89, 346);
             this.BTNLoadTemplate1.Name = "BTNLoadTemplate1";
-            this.BTNLoadTemplate1.Size = new System.Drawing.Size(310, 36);
+            this.BTNLoadTemplate1.Size = new System.Drawing.Size(160, 47);
             this.BTNLoadTemplate1.TabIndex = 12;
             this.BTNLoadTemplate1.TabStop = false;
             this.BTNLoadTemplate1.Text = "Загрузить шаблон";
@@ -771,6 +752,7 @@
             // CBFoundationContracter
             // 
             this.CBFoundationContracter.AutoSize = true;
+            this.CBFoundationContracter.Enabled = false;
             this.CBFoundationContracter.Location = new System.Drawing.Point(9, 34);
             this.CBFoundationContracter.Name = "CBFoundationContracter";
             this.CBFoundationContracter.Size = new System.Drawing.Size(195, 17);
@@ -910,9 +892,9 @@
             // 
             // BTNCreateTemplate1
             // 
-            this.BTNCreateTemplate1.Location = new System.Drawing.Point(190, 511);
+            this.BTNCreateTemplate1.Location = new System.Drawing.Point(188, 417);
             this.BTNCreateTemplate1.Name = "BTNCreateTemplate1";
-            this.BTNCreateTemplate1.Size = new System.Drawing.Size(150, 36);
+            this.BTNCreateTemplate1.Size = new System.Drawing.Size(154, 47);
             this.BTNCreateTemplate1.TabIndex = 303;
             this.BTNCreateTemplate1.Text = "Создать и сохранить шаблон";
             this.BTNCreateTemplate1.UseVisualStyleBackColor = true;
@@ -921,7 +903,7 @@
             // CBBarAct1
             // 
             this.CBBarAct1.AutoSize = true;
-            this.CBBarAct1.Location = new System.Drawing.Point(504, 522);
+            this.CBBarAct1.Location = new System.Drawing.Point(139, 480);
             this.CBBarAct1.Name = "CBBarAct1";
             this.CBBarAct1.Size = new System.Drawing.Size(78, 17);
             this.CBBarAct1.TabIndex = 302;
@@ -930,6 +912,8 @@
             // 
             // TABJournal
             // 
+            this.TABJournal.Controls.Add(this.BTNLoadTemplate2);
+            this.TABJournal.Controls.Add(this.BTNCreateTemplate2);
             this.TABJournal.Controls.Add(this.BTNCreateWord2);
             this.TABJournal.Controls.Add(this.CBBarAct2);
             this.TABJournal.Controls.Add(this.GBInstaller2);
@@ -943,11 +927,31 @@
             this.TABJournal.Text = "Акт услуг";
             this.TABJournal.UseVisualStyleBackColor = true;
             // 
+            // BTNLoadTemplate2
+            // 
+            this.BTNLoadTemplate2.Location = new System.Drawing.Point(514, 356);
+            this.BTNLoadTemplate2.Name = "BTNLoadTemplate2";
+            this.BTNLoadTemplate2.Size = new System.Drawing.Size(160, 47);
+            this.BTNLoadTemplate2.TabIndex = 57;
+            this.BTNLoadTemplate2.Text = "Загрузить шаблон";
+            this.BTNLoadTemplate2.UseVisualStyleBackColor = true;
+            this.BTNLoadTemplate2.Click += new System.EventHandler(this.BTNLoadTemplate2_Click);
+            // 
+            // BTNCreateTemplate2
+            // 
+            this.BTNCreateTemplate2.Location = new System.Drawing.Point(177, 409);
+            this.BTNCreateTemplate2.Name = "BTNCreateTemplate2";
+            this.BTNCreateTemplate2.Size = new System.Drawing.Size(164, 47);
+            this.BTNCreateTemplate2.TabIndex = 56;
+            this.BTNCreateTemplate2.Text = "Создать и сохранить шаблон";
+            this.BTNCreateTemplate2.UseVisualStyleBackColor = true;
+            this.BTNCreateTemplate2.Click += new System.EventHandler(this.BTNCreateTemplate2_Click);
+            // 
             // BTNCreateWord2
             // 
-            this.BTNCreateWord2.Location = new System.Drawing.Point(173, 438);
+            this.BTNCreateWord2.Location = new System.Drawing.Point(8, 409);
             this.BTNCreateWord2.Name = "BTNCreateWord2";
-            this.BTNCreateWord2.Size = new System.Drawing.Size(333, 36);
+            this.BTNCreateWord2.Size = new System.Drawing.Size(164, 47);
             this.BTNCreateWord2.TabIndex = 55;
             this.BTNCreateWord2.Text = "Создать и сохранить документ";
             this.BTNCreateWord2.UseVisualStyleBackColor = true;
@@ -956,7 +960,7 @@
             // CBBarAct2
             // 
             this.CBBarAct2.AutoSize = true;
-            this.CBBarAct2.Location = new System.Drawing.Point(512, 449);
+            this.CBBarAct2.Location = new System.Drawing.Point(347, 425);
             this.CBBarAct2.Name = "CBBarAct2";
             this.CBBarAct2.Size = new System.Drawing.Size(78, 17);
             this.CBBarAct2.TabIndex = 54;
@@ -966,6 +970,8 @@
             // 
             // GBInstaller2
             // 
+            this.GBInstaller2.Controls.Add(this.CBUnit2);
+            this.GBInstaller2.Controls.Add(this.LBUnit2);
             this.GBInstaller2.Controls.Add(this.CBAct2);
             this.GBInstaller2.Controls.Add(this.LBAct2);
             this.GBInstaller2.Controls.Add(this.LBRegCard2);
@@ -984,13 +990,42 @@
             this.GBInstaller2.Controls.Add(this.label6);
             this.GBInstaller2.Controls.Add(this.TBOrder2);
             this.GBInstaller2.Controls.Add(this.TBWorkerPost2);
-            this.GBInstaller2.Controls.Add(this.label13);
+            this.GBInstaller2.Controls.Add(this.LBWorkerPost2);
             this.GBInstaller2.Location = new System.Drawing.Point(347, 6);
             this.GBInstaller2.Name = "GBInstaller2";
-            this.GBInstaller2.Size = new System.Drawing.Size(327, 304);
+            this.GBInstaller2.Size = new System.Drawing.Size(327, 344);
             this.GBInstaller2.TabIndex = 53;
             this.GBInstaller2.TabStop = false;
             this.GBInstaller2.Text = "Организация-исполнитель";
+            // 
+            // CBUnit2
+            // 
+            this.CBUnit2.FormattingEnabled = true;
+            this.CBUnit2.Items.AddRange(new object[] {
+            "Финансового отдела",
+            "Секретной части",
+            "Договорно-правового отдела",
+            "Отдела сопровождения проектов",
+            "Отдела стендовых проверок",
+            "Отдела аттестационных работ",
+            "Отдела информационных технологий",
+            "Группы подготовки документов",
+            "Управления системных проектов",
+            "Центра регистрации электронной подписи",
+            "Строительно-монтажного отдела"});
+            this.CBUnit2.Location = new System.Drawing.Point(6, 230);
+            this.CBUnit2.Name = "CBUnit2";
+            this.CBUnit2.Size = new System.Drawing.Size(310, 21);
+            this.CBUnit2.TabIndex = 58;
+            // 
+            // LBUnit2
+            // 
+            this.LBUnit2.AutoSize = true;
+            this.LBUnit2.Location = new System.Drawing.Point(3, 214);
+            this.LBUnit2.Name = "LBUnit2";
+            this.LBUnit2.Size = new System.Drawing.Size(95, 13);
+            this.LBUnit2.TabIndex = 64;
+            this.LBUnit2.Text = "Проверяющий из";
             // 
             // CBAct2
             // 
@@ -1024,7 +1059,7 @@
             // LBRegCard2
             // 
             this.LBRegCard2.AutoSize = true;
-            this.LBRegCard2.Location = new System.Drawing.Point(105, 253);
+            this.LBRegCard2.Location = new System.Drawing.Point(105, 295);
             this.LBRegCard2.Name = "LBRegCard2";
             this.LBRegCard2.Size = new System.Drawing.Size(145, 13);
             this.LBRegCard2.TabIndex = 57;
@@ -1032,7 +1067,7 @@
             // 
             // TBRegCard2
             // 
-            this.TBRegCard2.Location = new System.Drawing.Point(108, 270);
+            this.TBRegCard2.Location = new System.Drawing.Point(108, 312);
             this.TBRegCard2.Name = "TBRegCard2";
             this.TBRegCard2.Size = new System.Drawing.Size(142, 20);
             this.TBRegCard2.TabIndex = 58;
@@ -1041,7 +1076,7 @@
             // LBKey2
             // 
             this.LBKey2.AutoSize = true;
-            this.LBKey2.Location = new System.Drawing.Point(6, 253);
+            this.LBKey2.Location = new System.Drawing.Point(6, 295);
             this.LBKey2.Name = "LBKey2";
             this.LBKey2.Size = new System.Drawing.Size(53, 13);
             this.LBKey2.TabIndex = 59;
@@ -1049,14 +1084,14 @@
             // 
             // TBKey2
             // 
-            this.TBKey2.Location = new System.Drawing.Point(6, 270);
+            this.TBKey2.Location = new System.Drawing.Point(6, 312);
             this.TBKey2.Name = "TBKey2";
             this.TBKey2.Size = new System.Drawing.Size(96, 20);
             this.TBKey2.TabIndex = 60;
             // 
             // BTNKey2
             // 
-            this.BTNKey2.Location = new System.Drawing.Point(256, 267);
+            this.BTNKey2.Location = new System.Drawing.Point(256, 309);
             this.BTNKey2.Name = "BTNKey2";
             this.BTNKey2.Size = new System.Drawing.Size(63, 23);
             this.BTNKey2.TabIndex = 61;
@@ -1067,7 +1102,7 @@
             // CBCity22
             // 
             this.CBCity22.AutoSize = true;
-            this.CBCity22.Location = new System.Drawing.Point(181, 233);
+            this.CBCity22.Location = new System.Drawing.Point(181, 275);
             this.CBCity22.Name = "CBCity22";
             this.CBCity22.Size = new System.Drawing.Size(132, 17);
             this.CBCity22.TabIndex = 56;
@@ -1078,7 +1113,7 @@
             // CBCity21
             // 
             this.CBCity21.AutoSize = true;
-            this.CBCity21.Location = new System.Drawing.Point(181, 215);
+            this.CBCity21.Location = new System.Drawing.Point(181, 257);
             this.CBCity21.Name = "CBCity21";
             this.CBCity21.Size = new System.Drawing.Size(56, 17);
             this.CBCity21.TabIndex = 55;
@@ -1089,7 +1124,7 @@
             // LBCity2
             // 
             this.LBCity2.AutoSize = true;
-            this.LBCity2.Location = new System.Drawing.Point(3, 212);
+            this.LBCity2.Location = new System.Drawing.Point(3, 254);
             this.LBCity2.Name = "LBCity2";
             this.LBCity2.Size = new System.Drawing.Size(102, 13);
             this.LBCity2.TabIndex = 54;
@@ -1097,7 +1132,7 @@
             // 
             // TBCity2
             // 
-            this.TBCity2.Location = new System.Drawing.Point(6, 228);
+            this.TBCity2.Location = new System.Drawing.Point(6, 270);
             this.TBCity2.Name = "TBCity2";
             this.TBCity2.Size = new System.Drawing.Size(145, 20);
             this.TBCity2.TabIndex = 53;
@@ -1159,14 +1194,14 @@
             this.TBWorkerPost2.Size = new System.Drawing.Size(310, 20);
             this.TBWorkerPost2.TabIndex = 40;
             // 
-            // label13
+            // LBWorkerPost2
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 173);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(144, 13);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "Должность проверяющего";
+            this.LBWorkerPost2.AutoSize = true;
+            this.LBWorkerPost2.Location = new System.Drawing.Point(3, 173);
+            this.LBWorkerPost2.Name = "LBWorkerPost2";
+            this.LBWorkerPost2.Size = new System.Drawing.Size(144, 13);
+            this.LBWorkerPost2.TabIndex = 39;
+            this.LBWorkerPost2.Text = "Должность проверяющего";
             // 
             // GBBuyer2
             // 
@@ -1180,8 +1215,6 @@
             this.GBBuyer2.Controls.Add(this.CBSKZIReg);
             this.GBBuyer2.Controls.Add(this.label3);
             this.GBBuyer2.Controls.Add(this.CBSKZIWork);
-            this.GBBuyer2.Controls.Add(this.TBFoundationVP2);
-            this.GBBuyer2.Controls.Add(this.LBFoundationVP2);
             this.GBBuyer2.Controls.Add(this.LBDirectorName2);
             this.GBBuyer2.Controls.Add(this.TBFoundation2);
             this.GBBuyer2.Controls.Add(this.LBFoundation2);
@@ -1196,7 +1229,7 @@
             this.GBBuyer2.Controls.Add(this.TBDirectorPost2);
             this.GBBuyer2.Location = new System.Drawing.Point(8, 6);
             this.GBBuyer2.Name = "GBBuyer2";
-            this.GBBuyer2.Size = new System.Drawing.Size(333, 426);
+            this.GBBuyer2.Size = new System.Drawing.Size(333, 397);
             this.GBBuyer2.TabIndex = 52;
             this.GBBuyer2.TabStop = false;
             this.GBBuyer2.Text = "Организация-заказчик";
@@ -1204,7 +1237,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 374);
+            this.label10.Location = new System.Drawing.Point(6, 334);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(243, 13);
             this.label10.TabIndex = 66;
@@ -1216,7 +1249,7 @@
             this.CBSKZIAccept.Items.AddRange(new object[] {
             "Соответствует",
             "Не соответствует, исполнителем выданы рекомендации по устранению нарушения"});
-            this.CBSKZIAccept.Location = new System.Drawing.Point(9, 390);
+            this.CBSKZIAccept.Location = new System.Drawing.Point(9, 350);
             this.CBSKZIAccept.Name = "CBSKZIAccept";
             this.CBSKZIAccept.Size = new System.Drawing.Size(310, 21);
             this.CBSKZIAccept.TabIndex = 65;
@@ -1224,7 +1257,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 334);
+            this.label9.Location = new System.Drawing.Point(6, 294);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(121, 13);
             this.label9.TabIndex = 64;
@@ -1236,7 +1269,7 @@
             this.CBSKZIKnowlenge.Items.AddRange(new object[] {
             "Соответствует",
             "Не соответствует, исполнителем проведено обучающее занятие с пользователем СКЗИ"});
-            this.CBSKZIKnowlenge.Location = new System.Drawing.Point(9, 350);
+            this.CBSKZIKnowlenge.Location = new System.Drawing.Point(9, 310);
             this.CBSKZIKnowlenge.Name = "CBSKZIKnowlenge";
             this.CBSKZIKnowlenge.Size = new System.Drawing.Size(310, 21);
             this.CBSKZIKnowlenge.TabIndex = 63;
@@ -1244,7 +1277,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 294);
+            this.label8.Location = new System.Drawing.Point(6, 254);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 13);
             this.label8.TabIndex = 62;
@@ -1256,7 +1289,7 @@
             this.CBSKZICheck.Items.AddRange(new object[] {
             "Соответствует",
             "Не соответствует, устранено исполнителем"});
-            this.CBSKZICheck.Location = new System.Drawing.Point(9, 310);
+            this.CBSKZICheck.Location = new System.Drawing.Point(9, 270);
             this.CBSKZICheck.Name = "CBSKZICheck";
             this.CBSKZICheck.Size = new System.Drawing.Size(310, 21);
             this.CBSKZICheck.TabIndex = 61;
@@ -1264,7 +1297,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 254);
+            this.label7.Location = new System.Drawing.Point(6, 214);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 13);
             this.label7.TabIndex = 60;
@@ -1276,7 +1309,7 @@
             this.CBSKZIReg.Items.AddRange(new object[] {
             "Соответствует",
             "Не соответствует, устранено исполнителем"});
-            this.CBSKZIReg.Location = new System.Drawing.Point(9, 270);
+            this.CBSKZIReg.Location = new System.Drawing.Point(9, 230);
             this.CBSKZIReg.Name = "CBSKZIReg";
             this.CBSKZIReg.Size = new System.Drawing.Size(310, 21);
             this.CBSKZIReg.TabIndex = 59;
@@ -1284,7 +1317,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 214);
+            this.label3.Location = new System.Drawing.Point(6, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 13);
             this.label3.TabIndex = 58;
@@ -1297,27 +1330,10 @@
             "Соответствует",
             "Не соответствует, устранено исполнителем",
             "Не соответствует, не устранено, составлен акт невозможности оказания услуги"});
-            this.CBSKZIWork.Location = new System.Drawing.Point(9, 230);
+            this.CBSKZIWork.Location = new System.Drawing.Point(9, 190);
             this.CBSKZIWork.Name = "CBSKZIWork";
             this.CBSKZIWork.Size = new System.Drawing.Size(310, 21);
             this.CBSKZIWork.TabIndex = 57;
-            // 
-            // TBFoundationVP2
-            // 
-            this.TBFoundationVP2.Enabled = false;
-            this.TBFoundationVP2.Location = new System.Drawing.Point(9, 153);
-            this.TBFoundationVP2.Name = "TBFoundationVP2";
-            this.TBFoundationVP2.Size = new System.Drawing.Size(310, 20);
-            this.TBFoundationVP2.TabIndex = 30;
-            // 
-            // LBFoundationVP2
-            // 
-            this.LBFoundationVP2.AutoSize = true;
-            this.LBFoundationVP2.Location = new System.Drawing.Point(6, 137);
-            this.LBFoundationVP2.Name = "LBFoundationVP2";
-            this.LBFoundationVP2.Size = new System.Drawing.Size(231, 13);
-            this.LBFoundationVP2.TabIndex = 31;
-            this.LBFoundationVP2.Text = "Название учреждения (винительный падеж)";
             // 
             // LBDirectorName2
             // 
@@ -1347,7 +1363,7 @@
             // LBDay2
             // 
             this.LBDay2.AutoSize = true;
-            this.LBDay2.Location = new System.Drawing.Point(6, 175);
+            this.LBDay2.Location = new System.Drawing.Point(6, 135);
             this.LBDay2.Name = "LBDay2";
             this.LBDay2.Size = new System.Drawing.Size(89, 13);
             this.LBDay2.TabIndex = 3;
@@ -1356,7 +1372,7 @@
             // LBMonth2
             // 
             this.LBMonth2.AutoSize = true;
-            this.LBMonth2.Location = new System.Drawing.Point(112, 176);
+            this.LBMonth2.Location = new System.Drawing.Point(112, 136);
             this.LBMonth2.Name = "LBMonth2";
             this.LBMonth2.Size = new System.Drawing.Size(95, 13);
             this.LBMonth2.TabIndex = 4;
@@ -1364,14 +1380,14 @@
             // 
             // TBDay2
             // 
-            this.TBDay2.Location = new System.Drawing.Point(9, 191);
+            this.TBDay2.Location = new System.Drawing.Point(9, 151);
             this.TBDay2.Name = "TBDay2";
             this.TBDay2.Size = new System.Drawing.Size(100, 20);
             this.TBDay2.TabIndex = 5;
             // 
             // TBYear2
             // 
-            this.TBYear2.Location = new System.Drawing.Point(242, 192);
+            this.TBYear2.Location = new System.Drawing.Point(242, 152);
             this.TBYear2.Name = "TBYear2";
             this.TBYear2.Size = new System.Drawing.Size(77, 20);
             this.TBYear2.TabIndex = 6;
@@ -1392,7 +1408,7 @@
             "октября",
             "ноября",
             "декабря"});
-            this.CBMonth2.Location = new System.Drawing.Point(115, 191);
+            this.CBMonth2.Location = new System.Drawing.Point(115, 151);
             this.CBMonth2.Name = "CBMonth2";
             this.CBMonth2.Size = new System.Drawing.Size(121, 21);
             this.CBMonth2.TabIndex = 7;
@@ -1400,7 +1416,7 @@
             // LBYear2
             // 
             this.LBYear2.AutoSize = true;
-            this.LBYear2.Location = new System.Drawing.Point(239, 176);
+            this.LBYear2.Location = new System.Drawing.Point(239, 136);
             this.LBYear2.Name = "LBYear2";
             this.LBYear2.Size = new System.Drawing.Size(80, 13);
             this.LBYear2.TabIndex = 8;
@@ -1431,9 +1447,10 @@
             // 
             // BTNTransfer
             // 
-            this.BTNTransfer.Location = new System.Drawing.Point(347, 316);
+            this.BTNTransfer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BTNTransfer.Location = new System.Drawing.Point(348, 356);
             this.BTNTransfer.Name = "BTNTransfer";
-            this.BTNTransfer.Size = new System.Drawing.Size(327, 36);
+            this.BTNTransfer.Size = new System.Drawing.Size(160, 47);
             this.BTNTransfer.TabIndex = 29;
             this.BTNTransfer.Text = "Перенести поля из акта установки";
             this.BTNTransfer.UseVisualStyleBackColor = true;
@@ -1447,7 +1464,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 610);
+            this.ClientSize = new System.Drawing.Size(695, 603);
             this.Controls.Add(this.TABAll);
             this.Controls.Add(this.LBTest);
             this.Controls.Add(this.label2);
@@ -1455,7 +1472,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Foundation Act Creator";
+            this.Text = "Mongoose";
             this.GBBuyer1.ResumeLayout(false);
             this.GBBuyer1.PerformLayout();
             this.GBInstaller1.ResumeLayout(false);
@@ -1533,15 +1550,11 @@
         public System.Windows.Forms.TabControl TABAll;
         public System.Windows.Forms.TabPage TABAct;
         public System.Windows.Forms.TabPage TABJournal;
-        public System.Windows.Forms.TextBox TBFoundationVP1;
-        public System.Windows.Forms.Label LBFoundationVP1;
         public System.Windows.Forms.Label LBCity1;
         public System.Windows.Forms.TextBox TBCity1;
         public System.Windows.Forms.CheckBox CBCity2;
         public System.Windows.Forms.CheckBox CBCity1;
         public System.Windows.Forms.GroupBox GBBuyer2;
-        public System.Windows.Forms.TextBox TBFoundationVP2;
-        public System.Windows.Forms.Label LBFoundationVP2;
         public System.Windows.Forms.Button BTNTransfer;
         public System.Windows.Forms.Label LBDirectorName2;
         public System.Windows.Forms.TextBox TBFoundation2;
@@ -1567,7 +1580,7 @@
         public System.Windows.Forms.Label label6;
         public System.Windows.Forms.TextBox TBOrder2;
         public System.Windows.Forms.TextBox TBWorkerPost2;
-        public System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label LBWorkerPost2;
         public System.Windows.Forms.Label label10;
         public System.Windows.Forms.ComboBox CBSKZIAccept;
         public System.Windows.Forms.Label label9;
@@ -1605,6 +1618,10 @@
         public System.Windows.Forms.TextBox TBOrganizationContracter1;
         public System.Windows.Forms.Button BTNCreateTemplate1;
         public System.Windows.Forms.OpenFileDialog OpenTemplate;
+        public System.Windows.Forms.Button BTNLoadTemplate2;
+        public System.Windows.Forms.Button BTNCreateTemplate2;
+        public System.Windows.Forms.Label LBUnit2;
+        private System.Windows.Forms.ComboBox CBUnit2;
     }
 }
 

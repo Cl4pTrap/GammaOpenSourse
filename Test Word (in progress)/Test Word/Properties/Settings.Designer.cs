@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test_Word.Properties
+namespace Mongoose.Properties
 {
 
 

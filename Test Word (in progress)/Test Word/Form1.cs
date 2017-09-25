@@ -12,7 +12,7 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Resources;
 
-namespace Test_Word
+namespace Mongoose
 {
     public partial class Form1 : Form
     {
@@ -85,7 +85,13 @@ namespace Test_Word
             foreach (var line in data) { SKZIList.Add(line); }
             CBSKZI1.DataSource = SKZIList;
             CBUnit1.SelectedIndex = 6;
-            try
+            CBBarAct1.Checked = true;
+            CBBarAct2.Checked = true;
+            string[] WorkersKir = System.IO.File.ReadAllLines(Application.StartupPath + "\\WorkersKir.csv", Encoding.Default);
+            foreach (var fio in WorkersKir) { Workers.Add(fio); }
+            CBInstaller1.DataSource = Workers;
+            CBInstaller2.DataSource = Workers;
+           /* try
             {
                 ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://help.khv.nppgamma.ru/files/WorkersKir.csv");
@@ -112,11 +118,11 @@ namespace Test_Word
                 foreach (var fio in WorkersKir) { Workers.Add(fio); }
             }
 
-           /* byte[] ResourceRef;
-            ResourceRef = Properties.Resources.DocX;
-            System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);
-            ResourceRef = Properties.Resources.BarcodeLib;
-            System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);*/
+            /* byte[] ResourceRef;
+             ResourceRef = Properties.Resources.DocX;
+             System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);
+             ResourceRef = Properties.Resources.BarcodeLib;
+             System.IO.File.WriteAllBytes(Application.StartupPath + "\\Test Word.exe", ResourceRef);*/
 
 
             // AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
@@ -355,7 +361,6 @@ namespace Test_Word
                     ReplaceWordStub("$FoundationContracter", "Хабаровского НТЦ «ФГУП НПП «Гамма»", doc);
                     ReplaceWordStub("$FoundationContracter", "Хабаровского НТЦ «ФГУП НПП «Гамма»", doc);
                 }
-                ReplaceWordStub("$FoundVP", TBFoundationVP1.Text, doc);
                 ReplaceWordStub("$Day", TBDay1.Text, doc);
                 ReplaceWordStub("$Month", CBMonth1.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear1.Text, doc);
@@ -547,6 +552,7 @@ namespace Test_Word
                 ReplaceWordStub("$Month", CBMonth2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
                 ReplaceWordStub("$Year", TBYear2.Text, doc);
+                ReplaceWordStub("$Unit", CBUnit2.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Dst", Act, doc);
                 if (CBCity21.Checked)
                 { ReplaceWordStub("$CityType", "г.", doc); }
@@ -630,9 +636,10 @@ namespace Test_Word
             {
                 try
                 {
-                    Directory.CreateDirectory(Application.StartupPath + @"\Templates\" + TBFoundation1.Text);
+                    Saving.ShowDialog();
+                    Directory.CreateDirectory(Saving.FileName);
                     Thread.Sleep(10);
-                    FileStream file1 = new FileStream(Application.StartupPath + @"\Templates\" + TBFoundation1.Text + @"\Fields.csv", FileMode.OpenOrCreate);
+                    FileStream file1 = new FileStream(Saving.FileName + @"\Install.csv", FileMode.OpenOrCreate);
                     StreamWriter writer = new StreamWriter(file1, Encoding.Default);
                     writer.WriteLine("0;" + "Хабаровского НТЦ «ФГУП НПП «Гамма»");
                     if (TBDirectorName1.Text != "") { writer.WriteLine("1;" + TBDirectorName1.Text); }
@@ -658,6 +665,7 @@ namespace Test_Word
                     if (CBCity2.Checked)
                     { CBCity1.Enabled = false; writer.WriteLine("19;" + "с.п."); }
                     writer.Close();
+                    
                     MessageBox.Show("Success!");
                 }
                 catch (Exception ex)
@@ -690,7 +698,7 @@ namespace Test_Word
                     ch2 = Convert.ToChar(sr.Read()); if (ch2 != ';') { s += ch2; }
                     switch (s)
                     {
-                        case "0": { AddElementTB(sr.ReadLine(), ref TBDirectorName1); break; }
+                        case "0": { sr.ReadLine(); break; }
                         case "1": { AddElementTB(sr.ReadLine(), ref TBDirectorName1); break; }
                         case "2": { AddElementTB(sr.ReadLine(), ref TBDirectorPost1); break; }
                         case "3": { AddElementTB(sr.ReadLine(), ref TBFoundation1); break; }
@@ -721,6 +729,92 @@ namespace Test_Word
                 MessageBox.Show(ex.ToString());
             }
             
+        }
+
+        private void BTNCreateTemplate2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Saving.ShowDialog();
+                Directory.CreateDirectory(Saving.FileName);
+                Thread.Sleep(10);
+                FileStream file1 = new FileStream(Saving.FileName + @"\Order.csv", FileMode.OpenOrCreate);
+                StreamWriter writer = new StreamWriter(file1, Encoding.Default);
+                writer.WriteLine("0;" + "Хабаровского НТЦ «ФГУП НПП «Гамма»");
+                if (TBDirectorName2.Text != "") { writer.WriteLine("1;" + TBDirectorName2.Text); }
+                if (TBDirectorPost2.Text != "") { writer.WriteLine("2;" + TBDirectorPost2.Text); }
+                if (TBFoundation2.Text != "") { writer.WriteLine("3;" + TBFoundation2.Text); }
+                if (TBOrder2.Text != "") { writer.WriteLine("4;" + TBOrder2.Text); }
+                writer.WriteLine("5;" + CBAct2.SelectedItem.ToString());
+                if (CBUnit2.SelectedItem.ToString() != "") { writer.WriteLine("6;" + CBUnit2.SelectedItem.ToString()); }
+                if (CBInstaller2.SelectedItem.ToString() != "") { writer.WriteLine("7;" + CBInstaller2.SelectedItem); }
+                if (TBWorker2.Text != "") { writer.WriteLine("8;" + TBWorker2.Text); }
+                if (TBWorkerPost2.Text != "") { writer.WriteLine("9;" + TBWorkerPost2.Text); }
+                if (TBCity2.Text != "") { writer.WriteLine("10;" + TBCity2.Text); }
+                if (CBCity21.Checked)
+                { writer.WriteLine("11;" + "г."); }
+                if (CBCity22.Checked)
+                { writer.WriteLine("11;" + "с.п."); }
+                if (CBSKZIAccept.SelectedItem.ToString() != "") { writer.WriteLine("12;" + CBSKZIAccept.SelectedItem.ToString()); }
+                if (CBSKZICheck.SelectedItem.ToString() != "") { writer.WriteLine("13;" + CBSKZICheck.SelectedItem.ToString()); }
+                if (CBSKZIReg.SelectedItem.ToString() != "") { writer.WriteLine("14;" + CBSKZIReg.SelectedItem.ToString()); }
+                if (CBSKZIWork.SelectedItem.ToString() != "") { writer.WriteLine("15;" + CBSKZIWork.SelectedItem.ToString()); }
+                if (CBSKZIKnowlenge.SelectedItem.ToString() != "") { writer.WriteLine("16;" + CBSKZIKnowlenge.SelectedItem.ToString()); }
+                writer.Close();
+                MessageBox.Show("Success!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                FileInfo file = new FileInfo(Application.StartupPath + "\\Delete.doc");
+                file.Delete();
+            }
+        }
+
+        private void BTNLoadTemplate2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenTemplate.ShowDialog();
+                FileStream file = new FileStream(path: OpenTemplate.FileName, mode: FileMode.OpenOrCreate);
+                StreamReader sr = new StreamReader(file, Encoding.Default);
+                char ch1;
+                char ch2;
+                string s = "";
+                string ss = "";
+                while (sr.EndOfStream == false)
+                {
+                    ch1 = Convert.ToChar(sr.Read()); s += ch1;
+                    ch2 = Convert.ToChar(sr.Read()); if (ch2 != ';') { s += ch2; }
+                    switch (s)
+                    {
+                        case "0": { sr.ReadLine(); break; }
+                        case "1": { AddElementTB(sr.ReadLine(), ref TBDirectorName2); break; }
+                        case "2": { AddElementTB(sr.ReadLine(), ref TBDirectorPost2); break; }
+                        case "3": { AddElementTB(sr.ReadLine(), ref TBFoundation2); break; }
+                        case "4": { AddElementTB(sr.ReadLine(), ref TBOrder2); break; }
+                        case "5": { AddElementCB(sr.ReadLine(), ref CBAct2); break; }
+                        case "6": { AddElementCB(sr.ReadLine(), ref CBUnit2); break; }
+                        case "7": { AddElementCB(sr.ReadLine(), ref CBInstaller2); break; }
+                        case "8": { AddElementTB(sr.ReadLine(), ref TBWorker2); break; }
+                        case "9": { AddElementTB(sr.ReadLine(), ref TBWorkerPost2); break; }
+                        case "10": { sr.Read(); AddElementTB(sr.ReadLine(), ref TBCity2); break; }
+                        case "11": { sr.Read(); ss = sr.ReadLine(); if (ss == "г.") { CBCity22.Checked = true; } else { CBCity21.Checked = true; } break; }
+                        case "12": { sr.Read(); AddElementCB(sr.ReadLine(), ref CBSKZIAccept); break; }
+                        case "13": { sr.Read(); AddElementCB(sr.ReadLine(), ref CBSKZICheck); break; }
+                        case "14": { sr.Read(); AddElementCB(sr.ReadLine(), ref CBSKZIReg); break; }
+                        case "15": { sr.Read(); AddElementCB(sr.ReadLine(), ref CBSKZIWork); break; }
+                        case "16": { sr.Read(); AddElementCB(sr.ReadLine(), ref CBSKZIKnowlenge); break; }
+                        default: { break; }
+                    }
+                    s = "";
+                }
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void BTNKey_Click(object sender, EventArgs e)
@@ -828,6 +922,8 @@ namespace Test_Word
             TBRegCard2.Text = TBRegCard1.Text;
             TBOrder2.Text = TBOrder1.Text;
             TBCity2.Text = TBCity1.Text;
+            CBAct2.SelectedIndex = CBAct1.SelectedIndex;
+            CBUnit2.SelectedIndex = CBUnit1.SelectedIndex;
         }
 
         public void Change(object sender, EventArgs e)
@@ -860,7 +956,7 @@ namespace Test_Word
                 {
                     if (ch[i].ToString() == ";")
                     {
-                        for (int j = a - 1; j > 0; j--)
+                        for (int j = a - 1; j >= 0; j--)
                         {
                             WP2 += ch1[j];
                         }
@@ -899,7 +995,7 @@ namespace Test_Word
                 {
                     if (ch[i].ToString() == ";")
                     {
-                        for (int j = a - 1; j > 0; j--)
+                        for (int j = a - 1; j >= 0; j--)
                         {
                             WP2 += ch1[j];
                         }

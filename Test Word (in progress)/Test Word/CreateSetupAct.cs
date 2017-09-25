@@ -12,7 +12,7 @@ using System.Threading;
 using System.Reflection;
 using System.Resources;
 
-namespace Test_Word
+namespace Mongoose
 {
     class CreateSetupAct : Form1
     {
@@ -45,7 +45,6 @@ namespace Test_Word
                     ReplaceWordStub("$FoundationContractor", "Хабаровского НТЦ «ФГУП НПП «Гамма»", doc);
                     ReplaceWordStub("$FoundationContractor", "Хабаровского НТЦ «ФГУП НПП «Гамма»", doc);
                 }
-                ReplaceWordStub("$FoundVP", TBFoundationVP1.Text, doc);
                 ReplaceWordStub("$Day", TBDay1.Text, doc);
                 ReplaceWordStub("$Month", CBMonth1.SelectedItem.ToString(), doc);
                 ReplaceWordStub("$Year", TBYear1.Text, doc);
