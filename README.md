@@ -1,2 +1,4 @@
 # GammaOpenSourse
-Sameshit v0.6, barcode and templates included.
+Main project - Mongoose.
+Sameshit v0.7, barcode and templates included.
+CryptoPro fiexed
