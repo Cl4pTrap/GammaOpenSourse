@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongoose", "Test Word\Mongoose.csproj", "{383E9A3E-AA11-4022-B649-FD9C1E56BE24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{383E9A3E-AA11-4022-B649-FD9C1E56BE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383E9A3E-AA11-4022-B649-FD9C1E56BE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383E9A3E-AA11-4022-B649-FD9C1E56BE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383E9A3E-AA11-4022-B649-FD9C1E56BE24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A064D8A9-426E-41AF-A07A-2940A3BD40C4}
+	EndGlobalSection
+EndGlobal
